@@ -63,14 +63,13 @@ def delete(expense_id):
 
 
 # ---------- Filter by Day, Month, Year, Quarter, Custom Range ----------
-@app.route('/filter', methods=['GET', 'POST'])
-def filter_expenses():
+@app.route('/filter', methods=['GET', 'POST'])#This creates a Flask route called /filter.
+def filter_expenses():# It can work for both GET (from buttons/links) and POST (from form submission).
     conn = sqlite3.connect("expenses.db")
     cur = conn.cursor()
     filter_type = request.args.get('type')
     title = ""
 
-    # Predefined filters (day/month/year/quarter)
     if filter_type == "day":
         today = datetime.now().strftime("%Y-%m-%d")
         cur.execute("SELECT * FROM expenses WHERE date = ?", (today,))
@@ -143,7 +142,6 @@ def chart_data():
     labels = [row[0] for row in category_data]
     values = [row[1] for row in category_data]
     return jsonify({"labels": labels, "values": values})
-
 
 # ---------- Run App ----------
 if __name__ == "__main__":
