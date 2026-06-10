@@ -3,7 +3,7 @@ import sqlite3
 from datetime import datetime
 
 app = Flask(__name__)
-
+#  all data 
 # ---------- Create database ----------
 def init_db():
     conn = sqlite3.connect("expenses.db")
