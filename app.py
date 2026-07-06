@@ -1,4 +1,4 @@
-# new info 
+
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import sqlite3
